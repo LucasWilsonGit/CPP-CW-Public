@@ -1,0 +1,28 @@
+static std::list<int> GetUserInputList() {
+    std::list<int> l;
+
+    int x;
+    while (std::cin >> x) {
+        l.push_back(x);
+    }
+
+    return l;
+}
+
+unsigned CountZeroesBeforeOne(const std::list<int>& numbers) {
+    unsigned count = 0;
+    for (auto it = numbers.begin(); it != numbers.end(); it++) {
+        if (*it == 0)
+            count++;
+        else if (*it == 1)
+            break;
+    }
+    return count;
+}
+
+void Exercise2() {
+    std::cout << "Input a list of integers: " << std::endl;
+    std::list<int> numbers = GetUserInputList();
+
+    std::cout << "Zeroes before One count: " << CountZeroesBeforeOne(numbers) << std::endl;
+}
